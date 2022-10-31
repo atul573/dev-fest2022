@@ -67,7 +67,49 @@
     gtag("config", "UA-176733991-3");
   </script>
 
-  <style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="css/style.css">
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    <!-- <style>
+       .select-container .select {
+      background-color: #fff;
+      padding: 6px 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 100ms ease;
+
+    }
+
+    .select-container .select:not(:last-child) {
+      border-right: 1px solid #cacaca;
+    }
+
+    .select-container .select[selected] {
+      color: #fff;
+      background-color: var(--button-color);
+    }
+    </style> -->
+
+  <!-- <style>
     * {
       box-sizing: border-box;
       --shadow-elevation-1: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -311,74 +353,230 @@
         padding-bottom: 5px;
       }
     }
+  </style> -->
+  <style>
+    .download-fab {
+        width: 56px;
+        height: 56px;
+      }
   </style>
 
+  <body>
   <header>
-    <div class="header-flex-wrapper">
-        <div class="title">
-          DevFest India Badge Generator
+    <nav
+      class="fixed w-screen top-0 z-50 drop-shadow-lg bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+    >
+      <div
+        class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+      >
+        <a href="./index.html" class="flex items-center">
+          <img
+            src="./assets/fest-icon.png"
+            class="mr-3 h-6 sm:h-9"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+            >DevFest Jammu</span
+          >
+        </a>
+        <div class="flex items-center lg:order-2">
+         
+
+          <button
+            data-collapse-toggle="mobile-menu-2"
+            type="button"
+            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
         </div>
-        <div>
-          <ul class="list-unstyled  badge-list">
-            <li><a href="https://devfestindia.com" target="_blank" class="border-btn" rel = "noreferrer">Website</a></li>
-            <li><a href="http://feedback.devfestindia.com" target="_blank" class="blue-btn" rel = "noreferrer">Feedback</a></li>
-            <!-- <li><a href="https://devfestindia.com/registration" target="_blank" class="blue-btn" rel = "noreferrer">Registration</a></li> -->
+        <div
+          class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+          id="mobile-menu-2"
+        >
+          <ul
+            class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+          >
+            <li>
+              <a
+                href="./index.html"
+                class="underlineAnimationForNav block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 
+                hover:-translate-y-1 hover:text-xl hover:w-35 hover:duration-300 hover:delay-300"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="./speakers.html"
+                class="underlineAnimationForNav block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 
+                hover:-translate-y-1 hover:text-xl hover:w-35 hover:duration-300 hover:delay-300"
+                aria-current="page"
+                >Speakers</a
+              >
+            </li>
+            <li>
+              <a
+                href="./partners.html"
+                class="underlineAnimationForNav block py-2 pr-4 pl-3 text-gray rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white
+                hover:-translate-y-1 hover:text-xl hover:duration-300 hover:delay-100 decoration-sky-500"
+                >Partners</a
+              >
+            </li>
+
+            
+            <li>
+              <a
+                href="./team.html"
+                class="underlineAnimationForNav block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700
+                hover:-translate-y-1 hover:text-xl hover:w-35  hover:duration-300 hover:delay-300"
+                >Team</a
+              >
+            </li>
+            <!-- <li>
+                          <a href="./faq.html" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
+                      </li> -->
+            <!-- <li>
+                          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                      </li> -->
           </ul>
         </div>
       </div>
+    </nav>
   </header>
 
-  <div class="main-container">
-    <div class="input-panel">
-      <div class="input">
-        <label>Profile Picture</label>
-        <button class="button" onclick="uploadImage()">Upload Image</button>
-        <input
-          class="profile-input"
-          type="file"
-          accept="image/*"
-          onchange="upload(event)"
-          hidden
-        />
-      </div>
-      <div class="input">
-        <label>Image Shape</label>
-        <div class="select-container">
-          <div
-            class="select"
-            id="original"
-            selected
+
+  <section class="bg-white dark:bg-gray-900 overflow-hidden">
+
+
+    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 dark:bg-gray-900">
+      <div class="dark:bg-gray-900 ">
+        <div class="input flex flex-col dark:bg-gray-900">
+          <label class="text-4xl font-bold mb-2	">DevFest Jammu Badge</label>
+          <div class="text-lg">
+          <label >Now that you are here, how about personalising your
+            DevFest Jammu 2022 profile? Upload an image and
+            generate a personalised badge with the DevFest
+            Jammu 2022 frame. Also share your image using
+            #DevFestJammu on different social media platforms.</label>
+
+          </div>
+
+          <label class="text-lg font-bold mt-2"> Select Image</label>
+
+
+          <button class="dark:bg-gray-900 w-48 mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-8 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+           onclick="uploadImage()">Upload Image</button>
+          <input
+            class="profile-input"
+            type="file"
+            accept="image/*"
+            onchange="upload(event)"
+            hidden
+          />
+
+          <label>Image Shape</label>
+
+          <div class="select-container">
+
+            <button type="button" id="original" class=" select w-48 mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             onclick="changeShape('original')"
-          >
-            Original
-          </div>
-          <div class="select" id="square" onclick="changeShape('square')">
-            Square
-          </div>
-          <div class="select" id="circle" onclick="changeShape('circle')">
-            Circle
+            >Original</button>
+            
+            
+
+            
+              <button type="button" id="square" class="select w-48 mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onclick="changeShape('square')"
+              selected
+              >Square</button>
+
+              <button type="button" id="circle" class=" select w-48 mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            onclick="changeShape('circle')"
+            >Circle</button>
+
+            
           </div>
         </div>
+  
+  
+        <div class="mt-48">
+          <label>Image Shape</label>
+          
+        </div>
       </div>
+        
+        
+        <div class="mt-4 md:mt-0" data-aos="fade-left"  data-aos-duration="1000">
+          <div class="preview-panel">
+            <canvas></canvas>
+
+            <button class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center"
+            onclick="download()"
+            >
+              <svg fill="currentColor" class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+              <span>Download</span>
+            </button>
+
+            <!-- <button onclick="download()">download</button> -->
+            <div class="download-fab" onclick="download()" id="download">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                fill="currentColor"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                  d="M16.59 9H15V4c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v5H7.41c-.89 0-1.34 1.08-.71 1.71l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.63-.63.19-1.71-.7-1.71zM5 19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1z"
+                />
+              </svg>
+            </div>
+          </div>
+           
+            
+        </div>
     </div>
-    <div class="preview-panel">
-      <canvas></canvas>
-      <div class="download-fab" onclick="download()" id="download">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          fill="#fff"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path
-            d="M16.59 9H15V4c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v5H7.41c-.89 0-1.34 1.08-.71 1.71l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.63-.63.19-1.71-.7-1.71zM5 19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
   <script>
     const canvas = document.querySelector("canvas");
@@ -528,4 +726,8 @@
       a.click();
     };
   </script>
+
+  
+    
+  </body>
 </html>
